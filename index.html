@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { background: #333; color: white; padding: 1em; text-align: center; }
+        nav { margin: 1em 0; }
+        nav a { color: white; margin: 0 1em; text-decoration: none; }
+        .container { padding: 2em; }
+        .post { border: 1px solid #ddd; padding: 1em; margin: 1em 0; }
+        footer { text-align: center; padding: 1em; background: #333; color: white; }
+        .search { margin: 2em auto; text-align: center; }
+        @media (max-width: 600px) { nav a { display: block; margin: 0.5em 0; } }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Blog</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="search">
+        <input type="text" id="search" placeholder="Search..." onkeyup="searchPosts()">
+    </div>
+
+    <div class="container">
+        <div class="post" data-title="First Post">
+            <h2>First Post</h2>
+            <p>This is the content of the first post. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+        <div class="post" data-title="Second Post">
+            <h2>Second Post</h2>
+            <p>This is the content of the second post. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis.</p>
+        </div>
+        <div class="post" data-title="Third Post">
+            <h2>Third Post</h2>
+            <p>This is the content of the third post. In hac habitasse platea dictumst.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 My Blog. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function searchPosts() {
+            const input = document.getElementById('search').value.toLowerCase();
+            const posts = document.querySelectorAll('.post');
+            posts.forEach(post => {
+                const title = post.getAttribute('data-title').toLowerCase();
+                post.style.display = title.includes(input) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
